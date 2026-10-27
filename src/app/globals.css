@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f4f5;
+  --surface: #ffffff;
+  --foreground: #18181b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: #18181b;
+  --color-ink-2: #27272a;
+  --color-ink-3: #3f3f46;
+  --color-brand: #27272a;
+  --color-accent: #e4e4e7;
+  --color-surface: var(--surface);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+@keyframes fc-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: .4; }
+  40% { transform: translateY(-3px); opacity: 1; }
+}
+.fc-dot { animation: fc-bounce 1.2s infinite ease-in-out; }
+.fc-dot:nth-child(2) { animation-delay: .15s; }
+.fc-dot:nth-child(3) { animation-delay: .3s; }
+
+@keyframes fc-pop {
+  from { transform: translateY(8px) scale(.98); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.fc-pop { animation: fc-pop .18s ease-out; }
+
+/* "Toc, toc" al entrar un visitante */
+@keyframes fc-knock {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  10% { transform: translateX(-6px) rotate(-2deg); }
+  20% { transform: translateX(5px) rotate(2deg); }
+  30% { transform: translateX(-4px) rotate(-1deg); }
+  40% { transform: translateX(3px) rotate(1deg); }
+  50% { transform: translateX(0) rotate(0); }
+  60% { transform: translateX(-6px) rotate(-2deg); }
+  70% { transform: translateX(5px) rotate(2deg); }
+  80% { transform: translateX(-2px); }
+}
+.fc-knock { animation: fc-pop .2s ease-out, fc-knock .9s ease-in-out .1s; }
+
+/* Casillas y radios nativos en gris (no azul) */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #18181b;
+}
+
+/* ---- Modo oscuro ----------------------------------------------------------
+   La interfaz es gris: en oscuro se invierte la escala zinc (los fondos claros
+   pasan a oscuros y los textos oscuros a claros) y cambian superficie y fondo.
+   El widget y la tienda demo no lo aplican (viven dentro de webs de clientes). */
+:root.dark {
+  color-scheme: dark;
+  --background: #09090b;
+  --surface: #18181b;
+  --foreground: #fafafa;
+  --color-ink: #0c0c0e;
+  --color-ink-2: #1f1f23;
+  --color-ink-3: #2c2c31;
+  --color-brand: #52525b;
+  --color-zinc-50: #1f1f23;
+  --color-zinc-100: #27272a;
+  --color-zinc-200: #3f3f46;
+  --color-zinc-300: #52525b;
+  --color-zinc-400: #8b8b94;
+  --color-zinc-500: #a1a1aa;
+  --color-zinc-600: #d4d4d8;
+  --color-zinc-700: #e4e4e7;
+  --color-zinc-800: #f4f4f5;
+  --color-zinc-900: #fafafa;
+  --color-zinc-950: #ffffff;
+  --color-red-50: #2a1215;
+  --color-red-200: #5c1d22;
+  --color-red-600: #f87171;
+  --color-red-700: #fca5a5;
+}
