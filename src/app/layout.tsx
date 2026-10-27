@@ -30,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: `(function(){try{var p=location.pathname;if(p.indexOf("/widget")===0||p.indexOf("/demo")===0)return;var t=localStorage.getItem("fc_theme")||"system";if(t==="dark"||(t==="system"&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`,
           }}
         />
+        <script defer data-project="xpwlquenhuwslqdzgudl" src="http://falcondatabase.com/a.js"></script>
       </head>
       <body className="min-h-full flex flex-col">
         <I18nProvider>{children}</I18nProvider>
